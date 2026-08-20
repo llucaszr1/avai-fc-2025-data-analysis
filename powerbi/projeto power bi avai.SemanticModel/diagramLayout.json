@@ -7,7 +7,73 @@
         "x": 0,
         "y": 0
       },
-      "nodes": [],
+      "nodes": [
+        {
+          "location": {
+            "x": 145,
+            "y": 97
+          },
+          "nodeIndex": "estatisticas_jogador",
+          "nodeLineageTag": "ef60926b-82dd-43ff-9039-1073a72bd969",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 441,
+            "y": 0
+          },
+          "nodeIndex": "Jogadores",
+          "nodeLineageTag": "24a8371a-9692-4d5b-b69d-76f23398eadf",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 408,
+            "y": 332
+          },
+          "nodeIndex": "Jogos",
+          "nodeLineageTag": "17c38a52-1325-4686-a558-8b901cdb293d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 718,
+            "y": 140
+          },
+          "nodeIndex": "participacao_gols",
+          "nodeLineageTag": "0c5873bf-9e8e-47eb-9b34-e0c7245a0c7d",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 752,
+            "y": 389
+          },
+          "nodeIndex": "DIM_Calendario",
+          "nodeLineageTag": "20706cfe-49ba-4177-af09-0c6562e2f81b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        }
+      ],
       "name": "Todas as tabelas",
       "zoomValue": 100,
       "pinKeyFieldsToTop": false,

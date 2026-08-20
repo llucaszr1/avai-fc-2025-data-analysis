@@ -1,0 +1,16 @@
+relationship 900259a4-6d0c-15ef-4b53-63190fd34a4d
+	fromColumn: estatisticas_jogador.id_jogador
+	toColumn: Jogadores.id_jogador
+
+relationship 61833d47-8400-e913-e655-1582e9a3bf62
+	fromColumn: participacao_gols.id_jogador
+	toColumn: Jogadores.id_jogador
+
+relationship 57a9621d-c6ef-a5a5-a8d7-8c47f5f858d0
+	fromColumn: participacao_gols.id_jogo
+	toColumn: Jogos.id_jogo
+
+relationship 273a9a5d-6b09-aee9-ea06-ec77a251b94b
+	fromColumn: Jogos.data
+	toColumn: DIM_Calendario.Date
+

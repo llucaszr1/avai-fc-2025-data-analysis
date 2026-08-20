@@ -1,0 +1,72 @@
+table participacao_gols
+	lineageTag: 0c5873bf-9e8e-47eb-9b34-e0c7245a0c7d
+
+	column id_jogo
+		dataType: int64
+		formatString: 0
+		lineageTag: ef0880ff-5bc9-4d62-bcfc-a96c847536a8
+		summarizeBy: none
+		sourceColumn: id_jogo
+
+		annotation SummarizationSetBy = Automatic
+
+	column competição
+		dataType: string
+		lineageTag: 3889e2a7-7775-4190-b8c6-6813ad4b4a64
+		summarizeBy: none
+		sourceColumn: competição
+
+		annotation SummarizationSetBy = Automatic
+
+	column placar
+		dataType: string
+		lineageTag: 5b970851-02dc-4442-a662-5da6d3f41706
+		summarizeBy: none
+		sourceColumn: placar
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_jogador
+		dataType: int64
+		formatString: 0
+		lineageTag: 4efd1ea5-0814-435a-9ea4-bcf79dab0257
+		summarizeBy: none
+		sourceColumn: id_jogador
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols
+		dataType: int64
+		formatString: 0
+		lineageTag: 99e762b6-e345-4b30-b05f-16a154f3a9c1
+		summarizeBy: sum
+		sourceColumn: gols
+
+		annotation SummarizationSetBy = Automatic
+
+	column assitências
+		dataType: int64
+		formatString: 0
+		lineageTag: 12d527e3-c074-4642-9221-0f3a6fc1bc93
+		summarizeBy: sum
+		sourceColumn: assitências
+
+		annotation SummarizationSetBy = Automatic
+
+	partition participacao_gols = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\lucas\Documents\GitHub\avai-fc-2025-data-analysis\data\Estatistica AVAI FC 2025.xlsx"), null, true),
+				    participacao_gols_Sheet = Fonte{[Item="participacao_gols",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(participacao_gols_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"id_jogo", Int64.Type}, {"competição", type text}, {"placar", type text}, {"id_jogador", Int64.Type}, {"gols", Int64.Type}, {"assitências", Int64.Type}, {"Column7", type any}, {"Column8", type any}, {"Column9", type any}, {"Column10", type any}, {"Column11", type any}, {"Column12", type any}, {"Column13", type any}, {"Column14", type any}, {"Column15", type any}, {"Column16", type any}, {"Column17", type any}, {"Column18", type any}, {"Column19", type any}, {"Column20", type any}, {"Column21", type any}, {"Column22", type any}, {"Column23", type any}, {"Column24", type any}, {"Column25", type any}, {"Column26", type any}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"id_jogo", "competição", "placar", "id_jogador", "gols", "assitências"}),
+				    #"Primeiras Linhas Mantidas" = Table.FirstN(#"Outras Colunas Removidas",97)
+				in
+				    #"Primeiras Linhas Mantidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

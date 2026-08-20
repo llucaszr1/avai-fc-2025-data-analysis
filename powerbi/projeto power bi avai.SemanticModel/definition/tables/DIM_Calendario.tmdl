@@ -1,0 +1,66 @@
+table DIM_Calendario
+	lineageTag: 20706cfe-49ba-4177-af09-0c6562e2f81b
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: 29bf726b-b02d-4d5c-8491-873edc936a7d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano = YEAR(DIM_Calendario[Date])
+		formatString: 0
+		lineageTag: aeca0306-5092-451f-b260-ca4e28b696c2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes = FORMAT(DIM_Calendario[Date], "MMMM")
+		lineageTag: e62a1221-015f-4e99-8917-22974d24c46c
+		summarizeBy: none
+		sortByColumn: Mes_Numero
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes_Numero = MONTH(DIM_Calendario[Date])
+		formatString: 0
+		lineageTag: 6cd2d173-6cdb-49ec-af50-28bc1d565bd5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre = "T" & QUARTER(DIM_Calendario[Date])
+		lineageTag: 15a0aab3-9f7a-48f5-a40e-bf34176059c2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia_Semana = FORMAT(DIM_Calendario[Date], "dddd")
+		lineageTag: 4f45a23c-3204-4580-8956-55bacbd2972a
+		summarizeBy: none
+		sortByColumn: Dia_Semana_Numero
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia_Semana_Numero = WEEKDAY(DIM_Calendario[Date], 2)
+		formatString: 0
+		lineageTag: 044af8b4-0cb2-451d-ae40-435ed498c276
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_Calendario = calculated
+		mode: import
+		source =
+				
+				CALENDAR(
+				    MIN(jogos[data]),
+				    MAX(jogos[data])
+				)
+
+	annotation PBI_Id = dcbab0f405be42fbba36fb86f0da619e
+

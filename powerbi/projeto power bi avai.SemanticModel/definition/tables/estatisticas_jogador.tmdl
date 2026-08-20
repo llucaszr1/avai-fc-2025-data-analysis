@@ -1,0 +1,126 @@
+table estatisticas_jogador
+	lineageTag: ef60926b-82dd-43ff-9039-1073a72bd969
+
+	column id_jogador
+		dataType: int64
+		formatString: 0
+		lineageTag: e2386fca-d580-4463-b763-27b554fd5550
+		summarizeBy: none
+		sourceColumn: id_jogador
+
+		annotation SummarizationSetBy = Automatic
+
+	column jogador
+		dataType: string
+		lineageTag: 9eb59986-e408-4a76-89f4-2e774df48082
+		summarizeBy: none
+		sourceColumn: jogador
+
+		annotation SummarizationSetBy = Automatic
+
+	column competição
+		dataType: string
+		lineageTag: d7a08e72-b0e2-4e67-b32e-afbe56384717
+		summarizeBy: none
+		sourceColumn: competição
+
+		annotation SummarizationSetBy = Automatic
+
+	column jogos
+		dataType: int64
+		formatString: 0
+		lineageTag: 30b19143-bb10-4a08-b409-0b26ae41b43c
+		summarizeBy: sum
+		sourceColumn: jogos
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols
+		dataType: int64
+		formatString: 0
+		lineageTag: f36d968f-52e5-40a3-a36a-b0b8dc510ad1
+		summarizeBy: sum
+		sourceColumn: gols
+
+		annotation SummarizationSetBy = Automatic
+
+	column assitencias
+		dataType: int64
+		formatString: 0
+		lineageTag: e8594733-ff58-4264-adf0-f5c6a836bcde
+		summarizeBy: sum
+		sourceColumn: assitencias
+
+		annotation SummarizationSetBy = Automatic
+
+	column titularidades
+		dataType: int64
+		formatString: 0
+		lineageTag: c3b83947-305c-475b-a944-90e90db1dac9
+		summarizeBy: sum
+		sourceColumn: titularidades
+
+		annotation SummarizationSetBy = Automatic
+
+	column reservas
+		dataType: int64
+		formatString: 0
+		lineageTag: bac6ecc7-b3c2-4bd4-8df0-f7085413ea7f
+		summarizeBy: sum
+		sourceColumn: reservas
+
+		annotation SummarizationSetBy = Automatic
+
+	column minutos
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f77e697-f317-46c3-a597-257f1efce0bf
+		summarizeBy: sum
+		sourceColumn: minutos
+
+		annotation SummarizationSetBy = Automatic
+
+	column amarelos
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d8d5c87-7690-47f4-a8c7-d64c22b70667
+		summarizeBy: sum
+		sourceColumn: amarelos
+
+		annotation SummarizationSetBy = Automatic
+
+	column seg_amarelos
+		dataType: int64
+		formatString: 0
+		lineageTag: 340dfc06-a453-46de-b12e-279fd5b50e57
+		summarizeBy: sum
+		sourceColumn: seg_amarelos
+
+		annotation SummarizationSetBy = Automatic
+
+	column vermelhos
+		dataType: int64
+		formatString: 0
+		lineageTag: ec49a578-7788-44e8-aa87-914d448cd71e
+		summarizeBy: sum
+		sourceColumn: vermelhos
+
+		annotation SummarizationSetBy = Automatic
+
+	partition estatisticas_jogador = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\lucas\Documents\GitHub\avai-fc-2025-data-analysis\data\Estatistica AVAI FC 2025.xlsx"), null, true),
+				    estatisticas_jogador_Sheet = Fonte{[Item="estatisticas_jogador",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(estatisticas_jogador_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"id_jogador", Int64.Type}, {"jogador", type text}, {"competição", type text}, {"jogos", Int64.Type}, {"gols", Int64.Type}, {"assitencias", Int64.Type}, {"titularidades", Int64.Type}, {"reservas", Int64.Type}, {"minutos", Int64.Type}, {"amarelos", Int64.Type}, {"seg_amarelos", Int64.Type}, {"vermelhos", Int64.Type}, {"Column13", type any}, {"Column14", type any}, {"Column15", type any}, {"Column16", type any}, {"Column17", type any}, {"Column18", type any}, {"Column19", type any}, {"Column20", type any}, {"Column21", type any}, {"Column22", type any}, {"Column23", type any}, {"Column24", type any}, {"Column25", type any}, {"Column26", type any}, {"Column27", type any}, {"Column28", type any}, {"Column29", type any}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"id_jogador", "jogador", "competição", "jogos", "gols", "assitencias", "titularidades", "reservas", "minutos", "amarelos", "seg_amarelos", "vermelhos"}),
+				    #"Primeiras Linhas Mantidas" = Table.FirstN(#"Outras Colunas Removidas",77)
+				in
+				    #"Primeiras Linhas Mantidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,172 @@
+table Jogos
+	lineageTag: 17c38a52-1325-4686-a558-8b901cdb293d
+
+	measure 'Total Jogos' = COUNTROWS(jogos)
+		formatString: 0
+		lineageTag: 837bda83-1797-4ccd-8c21-645f5ed96320
+
+	measure 'Gols Avaí' = SUM(jogos[gols avai])
+		formatString: 0
+		lineageTag: 7b41bd52-8857-4f6e-85cb-85c0e3edcdd3
+
+	measure 'Gols Sofridos' = SUM(jogos[gols adversario])
+		formatString: 0
+		lineageTag: 382c48a9-cba0-4e7f-b318-df4855b1011a
+
+	measure Vitorias =
+			
+			CALCULATE(
+			    [Total Jogos],
+			    jogos[resultado] = "V"
+			)
+		formatString: 0
+		lineageTag: ee03709e-e629-42f4-a013-79e722938ac3
+
+	measure Empates =
+			
+			CALCULATE(
+			    [Total Jogos],
+			    jogos[resultado] = "E"
+			)
+		formatString: 0
+		lineageTag: 0ee23087-864a-4dc4-8c19-69a870ec8ea8
+
+	measure Derrotas =
+			
+			CALCULATE(
+			    [Total Jogos],
+			    jogos[resultado] = "D"
+			)
+		formatString: 0
+		lineageTag: 8781f67b-c644-4174-a238-07ee10e68b69
+
+	measure 'Saldo de Gols' =
+			
+			[Gols Avaí] - [Gols Sofridos]
+		formatString: 0
+		lineageTag: 66fbc652-e922-46a8-a7ec-5ccc13335b40
+
+	column id_jogo
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cfc1615-44d2-40f8-8b19-89a7ce76a459
+		summarizeBy: none
+		sourceColumn: id_jogo
+
+		annotation SummarizationSetBy = Automatic
+
+	column data
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5afef9a3-1c57-4884-8960-af192b352e4e
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column hora
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 93424d1c-1c33-4208-abc7-9c2c5f436ec9
+		summarizeBy: none
+		sourceColumn: hora
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column competição
+		dataType: string
+		lineageTag: 3f04856d-dbe2-4e61-a0af-07d50b24bfcd
+		summarizeBy: none
+		sourceColumn: competição
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rodada
+		dataType: string
+		lineageTag: 50a44424-cca6-46f3-b71d-08e24755be80
+		summarizeBy: none
+		sourceColumn: Rodada
+
+		annotation SummarizationSetBy = Automatic
+
+	column mando
+		dataType: string
+		lineageTag: 659a026f-3452-4e61-9e9a-d9707671dd57
+		summarizeBy: none
+		sourceColumn: mando
+
+		annotation SummarizationSetBy = Automatic
+
+	column adversário
+		dataType: string
+		lineageTag: e413e7ed-0a80-4865-9ca1-ed0384d8e7cd
+		summarizeBy: none
+		sourceColumn: adversário
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'gols avai'
+		dataType: int64
+		formatString: 0
+		lineageTag: 143ffb04-18d0-4eaf-b2d1-a0d9da663974
+		summarizeBy: sum
+		sourceColumn: gols avai
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'gols adversario'
+		dataType: int64
+		formatString: 0
+		lineageTag: fafe6c4b-1303-4024-be2c-04fdb3706b95
+		summarizeBy: sum
+		sourceColumn: gols adversario
+
+		annotation SummarizationSetBy = Automatic
+
+	column placar
+		dataType: string
+		lineageTag: 19db3e83-20ee-417e-b455-d1705a30d2c2
+		summarizeBy: none
+		sourceColumn: placar
+
+		annotation SummarizationSetBy = Automatic
+
+	column resultado
+		dataType: string
+		lineageTag: cd17257c-2fe7-4129-8ed9-bde7b7c9ae91
+		summarizeBy: none
+		sourceColumn: resultado
+
+		annotation SummarizationSetBy = Automatic
+
+	column pênaltis
+		dataType: string
+		lineageTag: aa63c618-6657-47a6-9ff5-4e2cc524245f
+		summarizeBy: none
+		sourceColumn: pênaltis
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Jogos = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\lucas\Documents\GitHub\avai-fc-2025-data-analysis\data\Estatistica AVAI FC 2025.xlsx"), null, true),
+				    Jogos_Sheet = Fonte{[Item="Jogos",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Jogos_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"id_jogo", Int64.Type}, {"data", type date}, {"hora", type datetime}, {"competição", type text}, {"Rodada", type any}, {"mando", type text}, {"adversário", type text}, {"gols_avai", Int64.Type}, {"gols_adversario", Int64.Type}, {"placar", type text}, {"resultado", type text}, {"pênaltis", type text}, {"Column13", type any}, {"Column14", type any}, {"Column15", type any}, {"Column16", type any}, {"Column17", type any}, {"Column18", type any}, {"Column19", type any}, {"Column20", type any}, {"Column21", type any}, {"Column22", type any}, {"Column23", type any}, {"Column24", type any}, {"Column25", type any}, {"Column26", type any}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"id_jogo", "data", "hora", "competição", "Rodada", "mando", "adversário", "gols_avai", "gols_adversario", "placar", "resultado", "pênaltis"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Outras Colunas Removidas",{{"hora", type time}}),
+				    #"Primeiras Linhas Mantidas" = Table.FirstN(#"Tipo Alterado1",53),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Primeiras Linhas Mantidas",{{"gols_adversario", "gols adversario"}, {"gols_avai", "gols avai"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

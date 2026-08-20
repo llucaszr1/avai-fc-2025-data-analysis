@@ -1,0 +1,45 @@
+table Jogadores
+	lineageTag: 24a8371a-9692-4d5b-b69d-76f23398eadf
+
+	column id_jogador
+		dataType: int64
+		formatString: 0
+		lineageTag: b789b457-376d-4cc8-8dda-b9cfd1a76250
+		summarizeBy: none
+		sourceColumn: id_jogador
+
+		annotation SummarizationSetBy = Automatic
+
+	column jogador
+		dataType: string
+		lineageTag: b1b0cf37-c8ef-48f8-bdfb-08ef88457dbd
+		summarizeBy: none
+		sourceColumn: jogador
+
+		annotation SummarizationSetBy = Automatic
+
+	column posição
+		dataType: string
+		lineageTag: 198eecc3-9c54-40eb-a2a9-4ead3a2b21d4
+		summarizeBy: none
+		sourceColumn: posição
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Jogadores = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\lucas\Documents\GitHub\avai-fc-2025-data-analysis\data\Estatistica AVAI FC 2025.xlsx"), null, true),
+				    Jogadores_Sheet = Fonte{[Item="Jogadores",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Jogadores_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"id_jogador", Int64.Type}, {"jogador", type text}, {"posição", type text}, {"Column4", type any}, {"Column5", type any}, {"Column6", type any}, {"Column7", type any}, {"Column8", type any}, {"Column9", type any}, {"Column10", type any}, {"Column11", type any}, {"Column12", type any}, {"Column13", type any}, {"Column14", type any}, {"Column15", type any}, {"Column16", type any}, {"Column17", type any}, {"Column18", type any}, {"Column19", type any}, {"Column20", type any}, {"Column21", type any}, {"Column22", type any}, {"Column23", type any}, {"Column24", type any}, {"Column25", type any}, {"Column26", type any}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"id_jogador", "jogador", "posição"}),
+				    #"Primeiras Linhas Mantidas" = Table.FirstN(#"Outras Colunas Removidas",51)
+				in
+				    #"Primeiras Linhas Mantidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
