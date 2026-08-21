@@ -72,6 +72,19 @@
             "width": 234
           },
           "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 992,
+            "y": 2
+          },
+          "nodeIndex": "DIM_Rodada",
+          "nodeLineageTag": "e95f4808-cd7a-4250-ad82-4035c4d8eee7",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 6
         }
       ],
       "name": "Todas as tabelas",

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "48ebcc3b6d02c9618aa1",
+  "name": "9da986c280919119fc56",
   "position": {
-    "x": 214.95440729483283,
-    "y": 117.68996960486322,
-    "z": 2000,
-    "height": 242.18844984802433,
-    "width": 329.726443768997,
-    "tabOrder": 1000
+    "x": 885.10638297872345,
+    "y": 369.6048632218845,
+    "z": 4000,
+    "height": 334.58966565349544,
+    "width": 369.6048632218845,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "columnChart",
@@ -23,12 +23,30 @@
                       "Entity": "Jogos"
                     }
                   },
+                  "Property": "mando"
+                }
+              },
+              "queryRef": "Jogos.mando",
+              "nativeQueryRef": "mando",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Jogos"
+                    }
+                  },
                   "Property": "resultado"
                 }
               },
               "queryRef": "Jogos.resultado",
-              "nativeQueryRef": "resultado",
-              "active": true
+              "nativeQueryRef": "resultado"
             }
           ]
         },
@@ -114,7 +132,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -370,6 +388,50 @@
               }
             ]
           }
+        },
+        {
+          "properties": {
+            "borderShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "showGradientLegend": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "totals": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -431,20 +493,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Resultado Jogos'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "padding": [
-        {
-          "properties": {
-            "top": {
-              "expr": {
-                "Literal": {
-                  "Value": "5D"
+                  "Value": "'Desempenho Casa X Fora'"
                 }
               }
             }

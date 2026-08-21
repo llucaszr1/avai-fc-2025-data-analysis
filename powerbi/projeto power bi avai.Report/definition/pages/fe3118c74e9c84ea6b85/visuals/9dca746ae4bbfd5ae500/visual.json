@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "9dca746ae4bbfd5ae500",
   "position": {
-    "x": 57.38601823708207,
-    "y": 47.659574468085111,
+    "x": 214.95440729483283,
+    "y": 17.507598784194531,
     "z": 1000,
     "height": 100.18237082066869,
-    "width": 933.73860182370822,
-    "tabOrder": 1000
+    "width": 1039.7568389057751,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "cardVisual",
@@ -140,7 +140,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 2,
-                      "Percent": -0.25
+                      "Percent": -0.5
                     }
                   }
                 }
@@ -149,7 +149,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "31D"
+                  "Value": "35D"
                 }
               }
             }
@@ -432,14 +432,14 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "35D"
                 }
               }
             },
@@ -473,75 +473,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "65e78011c5eb6d32cd21",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Jogos"
-              }
-            },
-            "Property": "Total Jogos"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "8d4f9ff98dbc687553ce",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Jogos"
-              }
-            },
-            "Property": "Vitorias"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "61343ecfb01ec8cd6017",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Jogos"
-                  }
-                },
-                "Property": "gols avai"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "65e3894de0f8ad3ee31e",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Jogos"
-                  }
-                },
-                "Property": "gols adversario"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

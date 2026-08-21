@@ -14,3 +14,12 @@ relationship 273a9a5d-6b09-aee9-ea06-ec77a251b94b
 	fromColumn: Jogos.data
 	toColumn: DIM_Calendario.Date
 
+relationship e9bc0448-aa96-f10d-7fdd-3dab0f84e55b
+	fromColumn: Jogos.Rodada
+	toColumn: DIM_Rodada.Rodada
+
+relationship 9466807b-011f-5ba0-44c7-2ba73801722f
+	isActive: false
+	fromColumn: Jogos.Chave_Rodada
+	toColumn: DIM_Rodada.Chave_Rodada
+

@@ -18,6 +18,7 @@ ref table Jogadores
 ref table participacao_gols
 ref table estatisticas_jogador
 ref table DIM_Calendario
+ref table DIM_Rodada
 
 ref cultureInfo pt-BR
 

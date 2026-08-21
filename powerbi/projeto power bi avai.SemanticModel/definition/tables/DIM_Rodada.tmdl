@@ -1,0 +1,41 @@
+table DIM_Rodada
+	lineageTag: e95f4808-cd7a-4250-ad82-4035c4d8eee7
+
+	column Competição
+		lineageTag: 06eef1dc-ff54-4c81-90f4-fda74559bcd1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Competição]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rodada
+		lineageTag: f3f547e5-5f97-498d-87ef-9f89655bba75
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Rodada]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Chave_Rodada =
+			
+			DIM_Rodada[Competição] & "-" & DIM_Rodada[Rodada]
+		lineageTag: c6fc8e0f-490c-45b7-822a-0d52db6805b3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_Rodada = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    SELECTCOLUMNS(
+				        jogos,
+				        "Competição", jogos[competição],
+				        "Rodada", jogos[rodada]
+				    )
+				)
+
+	annotation PBI_Id = cafe17b03ebe41439ee43b4f9c140450
+
