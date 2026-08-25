@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "9dca746ae4bbfd5ae500",
+  "name": "98b3f686a8a1846f92e5",
   "position": {
-    "x": 214.95440729483283,
-    "y": 17.507598784194531,
-    "z": 1000,
-    "height": 100.18237082066869,
-    "width": 1039.7568389057751,
+    "x": 882.31069476971174,
+    "y": 0,
+    "z": 0,
+    "height": 113.91100702576112,
+    "width": 208.8368462138954,
     "tabOrder": 0
   },
   "visual": {
@@ -23,63 +23,11 @@
                       "Entity": "Jogos"
                     }
                   },
-                  "Property": "Total Jogos"
+                  "Property": "Saldo de Gols"
                 }
               },
-              "queryRef": "Jogos.Total Jogos",
-              "nativeQueryRef": "Total Jogos"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Jogos"
-                    }
-                  },
-                  "Property": "Vitorias"
-                }
-              },
-              "queryRef": "Jogos.Vitorias",
-              "nativeQueryRef": "Vitorias"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Jogos"
-                        }
-                      },
-                      "Property": "gols avai"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(Jogos.gols_avai)",
-              "nativeQueryRef": "Soma de gols avai"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Jogos"
-                        }
-                      },
-                      "Property": "gols adversario"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(Jogos.Soma gols adversario)",
-              "nativeQueryRef": "Soma de gols adversario"
+              "queryRef": "Jogos.Saldo de Gols",
+              "nativeQueryRef": "Saldo de Gols"
             }
           ]
         }
@@ -94,7 +42,7 @@
                     "Entity": "Jogos"
                   }
                 },
-                "Property": "Total Jogos"
+                "Property": "Saldo de Gols"
               }
             },
             "direction": "Descending"
@@ -237,7 +185,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -275,6 +223,13 @@
                   "Value": "false"
                 }
               }
+            },
+            "paddingUniform": {
+              "expr": {
+                "Literal": {
+                  "Value": "18L"
+                }
+              }
             }
           },
           "selector": {
@@ -287,6 +242,55 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'middle'"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cards'"
+                }
+              }
+            },
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "columnCount": {
+              "expr": {
+                "Literal": {
+                  "Value": "6L"
+                }
+              }
+            },
+            "autoGrid": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "cellPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "5L"
+                }
+              }
+            },
+            "calloutSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "49D"
                 }
               }
             }
@@ -306,7 +310,7 @@
             "rectangleRoundedCurve": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "20L"
                 }
               }
             },
@@ -404,6 +408,29 @@
                   "Value": "false"
                 }
               }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "glowCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           },
           "selector": {
@@ -419,7 +446,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -467,11 +494,97 @@
                   "Value": "false"
                 }
               }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00679A'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "preset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bottom'"
+                }
+              }
+            },
+            "angle": {
+              "expr": {
+                "Literal": {
+                  "Value": "90L"
+                }
+              }
+            },
+            "shadowDistance": {
+              "expr": {
+                "Literal": {
+                  "Value": "10L"
+                }
+              }
+            },
+            "shadowBlur": {
+              "expr": {
+                "Literal": {
+                  "Value": "10L"
+                }
+              }
+            },
+            "shadowSpread": {
+              "expr": {
+                "Literal": {
+                  "Value": "3L"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "70L"
+                }
+              }
             }
           }
         }
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "3442994248ed74c168ce"
 }

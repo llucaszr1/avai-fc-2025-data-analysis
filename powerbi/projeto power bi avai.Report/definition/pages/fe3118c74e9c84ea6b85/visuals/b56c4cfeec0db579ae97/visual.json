@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "b56c4cfeec0db579ae97",
   "position": {
-    "x": 23.343465045592705,
-    "y": 271.36778115501522,
+    "x": 0,
+    "y": 80.729483282674778,
     "z": 7000,
     "height": 71.975683890577514,
     "width": 134.22492401215806,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -253,5 +253,24 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "eb79f9dae697b41436d7",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "afb2a7464a027e0072b9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Jogos"
+              }
+            },
+            "Property": "resultado"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

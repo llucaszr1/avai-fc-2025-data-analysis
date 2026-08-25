@@ -64,6 +64,16 @@ table Jogos
 		formatString: 0
 		lineageTag: 2c2a5542-47ae-43e2-abe4-2ad2a1d01970
 
+	measure Aproveitamento =
+			
+			DIVIDE(
+			    [Vitorias] * 3 + [Empates],
+			    [Total Jogos] * 3,
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 2b877634-c375-48f7-a988-6b38b37bcd1a
+
 	column id_jogo
 		dataType: int64
 		formatString: 0

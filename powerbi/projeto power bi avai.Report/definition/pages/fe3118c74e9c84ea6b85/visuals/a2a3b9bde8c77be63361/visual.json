@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "a2a3b9bde8c77be63361",
   "position": {
-    "x": 560.243161094225,
-    "y": 117.68996960486322,
+    "x": 190.63829787234044,
+    "y": 445.47112462006083,
     "z": 3000,
     "height": 242.18844984802433,
-    "width": 694.468085106383,
-    "tabOrder": 2000
+    "width": 678.90577507598789,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "lineChart",
@@ -387,8 +387,86 @@
             }
           }
         }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "preset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bottom'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "879f18db9675e66d1d99",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Calendario"
+              }
+            },
+            "Property": "Mes"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fcc4ac298f902abe6065",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Jogos"
+              }
+            },
+            "Property": "Gols Avaí"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e5a77a0c748081cb353a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Jogos"
+              }
+            },
+            "Property": "Gols Sofridos"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

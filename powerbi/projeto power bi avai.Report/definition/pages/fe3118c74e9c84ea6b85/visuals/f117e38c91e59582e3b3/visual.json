@@ -4,10 +4,10 @@
   "position": {
     "x": 0,
     "y": 0,
-    "z": 0,
-    "height": 719.75683890577511,
-    "width": 180.91185410334347,
-    "tabOrder": 5000
+    "z": 1000,
+    "height": 719.07904834996157,
+    "width": 180.752110514198,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "shape",
@@ -63,6 +63,19 @@
           },
           "selector": {
             "id": "default"
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

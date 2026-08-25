@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ab38621d72f649d56458",
   "position": {
-    "x": 23.343465045592705,
-    "y": 190.63829787234044,
+    "x": 0,
+    "y": 0,
     "z": 6000,
     "height": 71.975683890577514,
     "width": 134.22492401215806,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "slicer",
@@ -270,5 +270,24 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "eb79f9dae697b41436d7",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e4696618cfea7011be04",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Calendario"
+              }
+            },
+            "Property": "Mes"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
