@@ -4,7 +4,7 @@
   "position": {
     "x": 190.63829787234044,
     "y": 445.47112462006083,
-    "z": 3000,
+    "z": 2000,
     "height": 242.18844984802433,
     "width": 678.90577507598789,
     "tabOrder": 1000
@@ -422,51 +422,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "879f18db9675e66d1d99",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_Calendario"
-              }
-            },
-            "Property": "Mes"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "fcc4ac298f902abe6065",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Jogos"
-              }
-            },
-            "Property": "Gols Avaí"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e5a77a0c748081cb353a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Jogos"
-              }
-            },
-            "Property": "Gols Sofridos"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

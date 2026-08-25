@@ -4,10 +4,10 @@
   "position": {
     "x": 190.63829787234044,
     "y": 190.63829787234044,
-    "z": 6000,
+    "z": 5000,
     "height": 246.07902735562311,
     "width": 653.61702127659578,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "gauge",
@@ -103,6 +103,13 @@
                   }
                 }
               }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Arial Black'''"
+                }
+              }
             }
           }
         }
@@ -119,6 +126,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Arial Black'''"
                 }
               }
             }
@@ -144,6 +158,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Arial Black'''"
                 }
               }
             }
@@ -264,6 +285,13 @@
                   "Value": "16D"
                 }
               }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Arial Black'''"
+                }
+              }
             }
           }
         }
@@ -323,6 +351,13 @@
                   "Value": "12D"
                 }
               }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Arial Black'''"
+                }
+              }
             }
           }
         }
@@ -360,23 +395,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "77437f5da7afd34eb335",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Jogos"
-              }
-            },
-            "Property": "Aproveitamento"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
