@@ -23,19 +23,6 @@
         },
         {
           "location": {
-            "x": 441,
-            "y": 0
-          },
-          "nodeIndex": "Jogadores",
-          "nodeLineageTag": "24a8371a-9692-4d5b-b69d-76f23398eadf",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 4
-        },
-        {
-          "location": {
             "x": 408,
             "y": 332
           },
@@ -85,6 +72,18 @@
             "width": 234
           },
           "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 441,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Jogador",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas as tabelas",

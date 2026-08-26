@@ -11,10 +11,10 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["Jogos","Jogadores","participacao_gols","estatisticas_jogador"]
+annotation PBI_QueryOrder = ["Jogos","Dim_Jogador","participacao_gols","estatisticas_jogador"]
 
 ref table Jogos
-ref table Jogadores
+ref table Dim_Jogador
 ref table participacao_gols
 ref table estatisticas_jogador
 ref table DIM_Calendario

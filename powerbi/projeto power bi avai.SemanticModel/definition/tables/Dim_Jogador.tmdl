@@ -1,4 +1,4 @@
-table Jogadores
+table Dim_Jogador
 	lineageTag: 24a8371a-9692-4d5b-b69d-76f23398eadf
 
 	column id_jogador
@@ -26,7 +26,7 @@ table Jogadores
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Jogadores = m
+	partition Dim_Jogador = m
 		mode: import
 		source =
 				let

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "17ae3f578c26ddd71fec",
+  "name": "fbfea52db423826b439b",
   "position": {
-    "x": 24.827586206896552,
-    "y": 261.57635467980293,
-    "z": 17000,
-    "height": 39.014778325123153,
-    "width": 99.3103448275862,
-    "tabOrder": 16000
+    "x": 180.88669950738915,
+    "y": 0.88669950738916259,
+    "z": 12000,
+    "height": 55.862068965517238,
+    "width": 1099.5073891625616,
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,14 +19,15 @@
               {
                 "textRuns": [
                   {
-                    "value": "FILTROS",
+                    "value": "Análise de Jogadores",
                     "textStyle": {
                       "fontFamily": "Arial Black",
-                      "fontSize": "14pt",
-                      "color": "#252423"
+                      "fontSize": "24pt",
+                      "color": "#ffffff"
                     }
                   }
-                ]
+                ],
+                "horizontalTextAlignment": "center"
               }
             ]
           }

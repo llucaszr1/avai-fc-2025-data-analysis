@@ -1,6 +1,48 @@
 table estatisticas_jogador
 	lineageTag: ef60926b-82dd-43ff-9039-1073a72bd969
 
+	measure 'Minutos Card' =
+			
+			IF(
+			    NOT ISFILTERED(DIM_Jogador[jogador]),
+			    BLANK(),
+			    SUM(estatisticas_jogador[minutos])
+			)
+		formatString: 0
+		lineageTag: 04f10ec7-06f0-48ef-accd-a3cd8bb1df26
+
+	measure 'Titularidades Card' =
+			
+			IF(
+			    NOT ISFILTERED(DIM_Jogador[jogador]),
+			    BLANK(),
+			    SUM(estatisticas_jogador[titularidades])
+			)
+		formatString: 0
+		lineageTag: 89e4d495-1f49-4c18-ba88-f66b98adf907
+
+	measure 'Jogos Card' =
+			
+			IF(
+			    NOT ISFILTERED(DIM_Jogador[jogador]),
+			    BLANK(),
+			    SUM(estatisticas_jogador[jogos])
+			)
+		formatString: 0
+		lineageTag: 9e56578e-1d38-4888-a16e-8e60c6eb97ef
+
+	measure 'Jogador Card' =
+			
+			IF(
+			    NOT ISFILTERED(DIM_Jogador[jogador]),
+			    "GERAL",
+			    SELECTEDVALUE(
+			        DIM_Jogador[jogador],
+			        "Vários jogadores"
+			    )
+			)
+		lineageTag: 8481ab06-bd99-4d35-8a74-c04555283d30
+
 	column id_jogador
 		dataType: int64
 		formatString: 0
