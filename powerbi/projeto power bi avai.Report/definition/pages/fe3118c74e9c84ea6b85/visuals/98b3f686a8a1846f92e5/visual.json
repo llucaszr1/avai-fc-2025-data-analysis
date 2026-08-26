@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "98b3f686a8a1846f92e5",
   "position": {
-    "x": 882.31069476971174,
-    "y": 0,
+    "x": 801.15702479338836,
+    "y": 0.35610525292766354,
     "z": 0,
-    "height": 113.91100702576112,
-    "width": 208.8368462138954,
-    "tabOrder": 0
+    "height": 99.999999999999986,
+    "width": 179.99999999999997,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -97,7 +97,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "35D"
+                  "Value": "90D"
                 }
               }
             }
@@ -348,6 +348,13 @@
                   "Value": "'center'"
                 }
               }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
             }
           },
           "selector": {
@@ -415,6 +422,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
             }
           },
           "selector": {
@@ -428,7 +442,68 @@
             "show": {
               "expr": {
                 "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inner'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "shadowCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inner'"
+                }
+              }
+            },
+            "shadowPositionPreset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }
@@ -586,5 +661,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "3442994248ed74c168ce"
+  "parentGroupName": "a609416e1c2ef3ef740a"
 }

@@ -7,7 +7,7 @@
     "z": 17000,
     "height": 39.014778325123153,
     "width": 99.3103448275862,
-    "tabOrder": 16000
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "textbox",
@@ -23,7 +23,7 @@
                     "textStyle": {
                       "fontFamily": "Arial Black",
                       "fontSize": "14pt",
-                      "color": "#252423"
+                      "color": "#ffffff"
                     }
                   }
                 ]

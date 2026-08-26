@@ -5,7 +5,7 @@ table Jogos
 		formatString: 0
 		lineageTag: 837bda83-1797-4ccd-8c21-645f5ed96320
 
-	measure 'Gols Avaí' = SUM(jogos[gols avai])
+	measure 'Gols Avaí' = SUM(jogos[Gols pró])
 		formatString: 0
 		lineageTag: 7b41bd52-8857-4f6e-85cb-85c0e3edcdd3
 
@@ -137,14 +137,14 @@ table Jogos
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'gols avai'
+	column 'Gols pró'
 		dataType: int64
 		formatString: 0
 		lineageTag: 143ffb04-18d0-4eaf-b2d1-a0d9da663974
 		summarizeBy: sum
-		sourceColumn: gols avai
+		sourceColumn: Gols pró
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column 'gols adversario'
 		dataType: int64
@@ -198,7 +198,7 @@ table Jogos
 				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"id_jogo", "data", "hora", "competição", "Rodada", "mando", "adversário", "gols_avai", "gols_adversario", "placar", "resultado", "pênaltis"}),
 				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Outras Colunas Removidas",{{"hora", type time}}),
 				    #"Primeiras Linhas Mantidas" = Table.FirstN(#"Tipo Alterado1",53),
-				    #"Colunas Renomeadas" = Table.RenameColumns(#"Primeiras Linhas Mantidas",{{"gols_adversario", "gols adversario"}, {"gols_avai", "gols avai"}})
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Primeiras Linhas Mantidas",{{"gols_adversario", "gols adversario"}, {"gols_avai", "Gols pró"}})
 				in
 				    #"Colunas Renomeadas"
 

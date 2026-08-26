@@ -7,7 +7,7 @@
     "z": 20000,
     "height": 39.901477832512313,
     "width": 184.43349753694582,
-    "tabOrder": 19000
+    "tabOrder": 18000
   },
   "visual": {
     "visualType": "textbox",
@@ -22,7 +22,8 @@
                     "value": "VISÃO GERAL",
                     "textStyle": {
                       "fontFamily": "Arial Black",
-                      "fontSize": "14pt"
+                      "fontSize": "14pt",
+                      "color": "#ffffff"
                     }
                   }
                 ],

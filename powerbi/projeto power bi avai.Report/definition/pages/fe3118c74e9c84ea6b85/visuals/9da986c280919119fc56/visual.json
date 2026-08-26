@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "9da986c280919119fc56",
   "position": {
-    "x": 894.83282674772045,
-    "y": 436.71732522796356,
-    "z": 4000,
+    "x": 884.03940886699513,
+    "y": 442.46305418719214,
+    "z": 6000,
     "height": 260.66869300911856,
     "width": 369.6048632218845,
     "tabOrder": 2000
@@ -271,8 +271,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#F3D31F'"
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.5
                     }
                   }
                 }
@@ -356,7 +357,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 9,
-                      "Percent": 0
+                      "Percent": 0.2
                     }
                   }
                 }
@@ -455,7 +456,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "35D"
+                  "Value": "90D"
                 }
               }
             }
@@ -495,6 +496,20 @@
               "expr": {
                 "Literal": {
                   "Value": "'Desempenho Casa X Fora'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Arial Black'''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
                 }
               }
             }
@@ -538,7 +553,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -557,28 +572,28 @@
             "preset": {
               "expr": {
                 "Literal": {
-                  "Value": "'Bottom'"
+                  "Value": "'Center'"
                 }
               }
             },
             "angle": {
               "expr": {
                 "Literal": {
-                  "Value": "270L"
+                  "Value": "0L"
                 }
               }
             },
             "shadowDistance": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "0L"
                 }
               }
             },
             "shadowBlur": {
               "expr": {
                 "Literal": {
-                  "Value": "15L"
+                  "Value": "20L"
                 }
               }
             },
@@ -599,7 +614,7 @@
             "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'Outer'"
+                  "Value": "'Inner'"
                 }
               }
             }

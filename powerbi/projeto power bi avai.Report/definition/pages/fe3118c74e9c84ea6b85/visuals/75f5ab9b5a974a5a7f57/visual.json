@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "5404cd46e98cf48ec914",
+  "name": "75f5ab9b5a974a5a7f57",
   "position": {
-    "x": 0,
+    "x": 180.90909090909091,
     "y": 0,
-    "z": 7000,
-    "height": 169.35960591133005,
-    "width": 184.43349753694582,
-    "tabOrder": 3000
+    "z": 0,
+    "height": 89.090909090909079,
+    "width": 1099.090909090909,
+    "tabOrder": 20000
   },
   "visual": {
     "visualType": "image",
@@ -20,7 +20,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'Avaí_Futebol_Clube_logo.png'"
+                      "Value": "'20180921-Estadio-da-Ressacada-FOTO-Alceu-Atherino.jpeg'"
                     }
                   }
                 },
@@ -29,7 +29,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "Ava__Futebol_Clube_logo03439193270221952.png"
+                      "ItemName": "20180921-Estadio-da-Ressacada-21852340606172205.jpeg"
                     }
                   }
                 },
@@ -41,45 +41,27 @@
                   }
                 }
               }
-            }
-          }
-        }
-      ]
-    },
-    "visualContainerObjects": {
-      "background": [
-        {
-          "properties": {
-            "show": {
+            },
+            "fit": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'Fill'"
                 }
               }
             },
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "50D"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": -0.5
-                    }
-                  }
+                  "Value": "75D"
                 }
               }
             }
           }
         }
-      ],
-      "border": [
+      ]
+    },
+    "visualContainerObjects": {
+      "dropShadow": [
         {
           "properties": {
             "show": {
@@ -94,16 +76,58 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#00679A'"
+                      "Value": "'#ffffff'"
                     }
                   }
                 }
               }
             },
-            "radius": {
+            "position": {
               "expr": {
                 "Literal": {
-                  "Value": "15D"
+                  "Value": "'Inner'"
+                }
+              }
+            },
+            "preset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "angle": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "shadowDistance": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "shadowBlur": {
+              "expr": {
+                "Literal": {
+                  "Value": "20L"
+                }
+              }
+            },
+            "shadowSpread": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "70L"
                 }
               }
             }
