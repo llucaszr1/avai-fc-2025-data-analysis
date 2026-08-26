@@ -4,10 +4,10 @@
   "position": {
     "x": 202.16748768472905,
     "y": 7.0935960591133007,
-    "z": 1000,
+    "z": 2000,
     "height": 86.009852216748769,
     "width": 1070.2463054187192,
-    "tabOrder": 14000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "textbox",
@@ -22,7 +22,7 @@
                     "value": "Analise de desempenho geral Avaí F.C - 2025 ",
                     "textStyle": {
                       "fontFamily": "Arial Black",
-                      "fontSize": "20pt",
+                      "fontSize": "18pt",
                       "color": "#ffffff"
                     }
                   }
@@ -35,7 +35,7 @@
                     "value": "(Brasileirão série B e Catarinense)",
                     "textStyle": {
                       "fontFamily": "Arial Black",
-                      "fontSize": "18pt",
+                      "fontSize": "16pt",
                       "color": "#ffffff"
                     }
                   }

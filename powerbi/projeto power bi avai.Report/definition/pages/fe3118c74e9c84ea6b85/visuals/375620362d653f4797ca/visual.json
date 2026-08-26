@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "375620362d653f4797ca",
   "position": {
-    "x": 401.28151617365126,
+    "x": 401.19174689132677,
     "y": 0,
     "z": 13000,
-    "height": 100,
-    "width": 170,
+    "height": 106.90049261083746,
+    "width": 169.96196989549711,
     "tabOrder": 0
   },
   "visual": {
@@ -23,11 +23,12 @@
                       "Entity": "Jogos"
                     }
                   },
-                  "Property": "Derrotas"
+                  "Property": "Derrotas Card"
                 }
               },
-              "queryRef": "Jogos.Derrotas",
-              "nativeQueryRef": "Derrotas"
+              "queryRef": "Jogos.Derrotas Card",
+              "nativeQueryRef": "Derrotas",
+              "displayName": "Derrotas"
             }
           ]
         }
@@ -42,7 +43,7 @@
                     "Entity": "Jogos"
                   }
                 },
-                "Property": "Derrotas"
+                "Property": "Derrotas Card"
               }
             },
             "direction": "Descending"

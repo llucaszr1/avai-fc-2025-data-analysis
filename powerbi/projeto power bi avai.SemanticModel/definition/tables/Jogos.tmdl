@@ -67,12 +67,57 @@ table Jogos
 	measure Aproveitamento =
 			
 			DIVIDE(
-			    [Vitorias] * 3 + [Empates],
+			    ([Vitorias] * 3) + [Empates],
 			    [Total Jogos] * 3,
 			    0
 			)
-		formatString: 0.0%;-0.0%;0.0%
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 2b877634-c375-48f7-a988-6b38b37bcd1a
+
+	measure 'Vitorias Card' =
+			
+			IF(
+			    ISFILTERED(jogos[resultado]) &&
+			    NOT CONTAINS(
+			        VALUES(jogos[resultado]),
+			        jogos[resultado],
+			        "V"
+			    ),
+			    BLANK(),
+			    [Vitorias]
+			)
+		formatString: 0
+		lineageTag: cb228a8b-9cd8-4d24-bd7d-6d485d268be7
+
+	measure 'Empates Card' =
+			
+			IF(
+			    ISFILTERED(jogos[resultado]) &&
+			    NOT CONTAINS(
+			        VALUES(jogos[resultado]),
+			        jogos[resultado],
+			        "E"
+			    ),
+			    BLANK(),
+			    [Empates]
+			)
+		formatString: 0
+		lineageTag: 1da927bf-a1ad-4dde-97c2-89bafc0c6216
+
+	measure 'Derrotas Card' =
+			
+			IF(
+			    ISFILTERED(jogos[resultado]) &&
+			    NOT CONTAINS(
+			        VALUES(jogos[resultado]),
+			        jogos[resultado],
+			        "D"
+			    ),
+			    BLANK(),
+			    [Derrotas]
+			)
+		formatString: 0
+		lineageTag: d1ccd71a-20c6-4e23-971d-a1fd8c9aefe2
 
 	column id_jogo
 		dataType: int64

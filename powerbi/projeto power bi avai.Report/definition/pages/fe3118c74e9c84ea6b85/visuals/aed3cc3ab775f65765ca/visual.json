@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "aed3cc3ab775f65765ca",
   "position": {
-    "x": 267.52101078243419,
+    "x": 267.46116459421785,
     "y": 0,
     "z": 14000,
-    "height": 100,
-    "width": 170,
+    "height": 106.90049261083746,
+    "width": 169.96196989549711,
     "tabOrder": 3000
   },
   "visual": {
@@ -23,11 +23,12 @@
                       "Entity": "Jogos"
                     }
                   },
-                  "Property": "Empates"
+                  "Property": "Empates Card"
                 }
               },
-              "queryRef": "Jogos.Empates",
-              "nativeQueryRef": "Empates"
+              "queryRef": "Jogos.Empates Card",
+              "nativeQueryRef": "Empates",
+              "displayName": "Empates"
             }
           ]
         }
@@ -42,7 +43,7 @@
                     "Entity": "Jogos"
                   }
                 },
-                "Property": "Empates"
+                "Property": "Empates Card"
               }
             },
             "direction": "Descending"

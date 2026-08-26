@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "cd87ae07db055b15517b",
   "position": {
-    "x": 133.76050539121712,
+    "x": 133.73058229710895,
     "y": 0,
     "z": 15000,
-    "height": 100,
-    "width": 170,
+    "height": 106.90049261083746,
+    "width": 169.96196989549711,
     "tabOrder": 6000
   },
   "visual": {
@@ -23,11 +23,12 @@
                       "Entity": "Jogos"
                     }
                   },
-                  "Property": "Vitorias"
+                  "Property": "Vitorias Card"
                 }
               },
-              "queryRef": "Jogos.Vitorias",
-              "nativeQueryRef": "Vitorias"
+              "queryRef": "Jogos.Vitorias Card",
+              "nativeQueryRef": "Vitorias",
+              "displayName": "Vitorias"
             }
           ]
         }
@@ -42,7 +43,7 @@
                     "Entity": "Jogos"
                   }
                 },
-                "Property": "Vitorias"
+                "Property": "Vitorias Card"
               }
             },
             "direction": "Descending"
