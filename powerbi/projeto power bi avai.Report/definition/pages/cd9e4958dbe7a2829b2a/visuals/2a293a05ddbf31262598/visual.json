@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "8aeaf535f7f4a08c8ddf",
+  "name": "2a293a05ddbf31262598",
   "position": {
-    "x": 439.80295566502463,
-    "y": 66.502463054187189,
-    "z": 6000,
-    "height": 113.49753694581281,
-    "width": 119.70443349753695,
-    "tabOrder": 4000
+    "x": 151.18226600985224,
+    "y": 0,
+    "z": 13000,
+    "height": 113.49753694581284,
+    "width": 195.96059113300487,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -17,22 +17,18 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "estatisticas_jogador"
-                        }
-                      },
-                      "Property": "gols"
+                    "SourceRef": {
+                      "Entity": "estatisticas_jogador"
                     }
                   },
-                  "Function": 0
+                  "Property": "Jogos Card"
                 }
               },
-              "queryRef": "Sum(estatisticas_jogador.gols)",
-              "nativeQueryRef": "Soma de gols"
+              "queryRef": "estatisticas_jogador.Jogos Card",
+              "nativeQueryRef": "Jogos",
+              "displayName": "Jogos"
             }
           ]
         }
@@ -41,18 +37,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "estatisticas_jogador"
-                      }
-                    },
-                    "Property": "gols"
+                  "SourceRef": {
+                    "Entity": "estatisticas_jogador"
                   }
                 },
-                "Function": 0
+                "Property": "Jogos Card"
               }
             },
             "direction": "Descending"
@@ -107,7 +98,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "35D"
+                  "Value": "90D"
                 }
               }
             }
@@ -362,14 +353,14 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'''Arial Black'''"
+                  "Value": "'Arial'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "16D"
                 }
               }
             }
@@ -422,7 +413,7 @@
             "heading": {
               "expr": {
                 "Literal": {
-                  "Value": "'Heading4'"
+                  "Value": "'Heading3'"
                 }
               }
             },
@@ -436,21 +427,21 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'''Arial Black'''"
+                  "Value": "'Arial'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "16D"
                 }
               }
             }
@@ -466,7 +457,84 @@
             "show": {
               "expr": {
                 "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inner'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "shadowCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inner'"
+                }
+              }
+            },
+            "shadowPositionPreset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "verticalSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "5L"
                 }
               }
             }
@@ -620,28 +688,9 @@
             }
           }
         }
-      ],
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "''"
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "98dbb3cea7b8f2a60059"
 }

@@ -35,13 +35,40 @@ table estatisticas_jogador
 			
 			IF(
 			    NOT ISFILTERED(DIM_Jogador[jogador]),
-			    "GERAL",
+			    "Geral",
 			    SELECTEDVALUE(
 			        DIM_Jogador[jogador],
 			        "Vários jogadores"
 			    )
 			)
 		lineageTag: 8481ab06-bd99-4d35-8a74-c04555283d30
+
+	measure 'Participações em Gols' =
+			
+			SUM(estatisticas_jogador[gols])
+			+
+			SUM(estatisticas_jogador[assistencias])
+		formatString: 0
+		lineageTag: 1884d66f-02ee-41af-bd93-f4788c0b4f6a
+
+	measure 'Ordem Participação' =
+			
+			CALCULATE(
+			    SUM(estatisticas_jogador[gols]) +
+			    SUM(estatisticas_jogador[assistencias])
+			)
+		formatString: 0
+		lineageTag: 53100fe4-ea39-4010-ada9-6ba9793fd185
+
+	measure 'Total Cartões' =
+			
+			SUM(estatisticas_jogador[amarelos])
+			+
+			SUM(estatisticas_jogador[Seg_amarelos])
+			+
+			SUM(estatisticas_jogador[vermelhos])
+		formatString: 0
+		lineageTag: 18d9544f-5b99-4f2f-9b67-9ff23113b7ad
 
 	column id_jogador
 		dataType: int64
@@ -86,12 +113,12 @@ table estatisticas_jogador
 
 		annotation SummarizationSetBy = Automatic
 
-	column assitencias
+	column assistencias
 		dataType: int64
 		formatString: 0
 		lineageTag: e8594733-ff58-4264-adf0-f5c6a836bcde
 		summarizeBy: sum
-		sourceColumn: assitencias
+		sourceColumn: assistencias
 
 		annotation SummarizationSetBy = Automatic
 
@@ -158,9 +185,10 @@ table estatisticas_jogador
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(estatisticas_jogador_Sheet, [PromoteAllScalars=true]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"id_jogador", Int64.Type}, {"jogador", type text}, {"competição", type text}, {"jogos", Int64.Type}, {"gols", Int64.Type}, {"assitencias", Int64.Type}, {"titularidades", Int64.Type}, {"reservas", Int64.Type}, {"minutos", Int64.Type}, {"amarelos", Int64.Type}, {"seg_amarelos", Int64.Type}, {"vermelhos", Int64.Type}, {"Column13", type any}, {"Column14", type any}, {"Column15", type any}, {"Column16", type any}, {"Column17", type any}, {"Column18", type any}, {"Column19", type any}, {"Column20", type any}, {"Column21", type any}, {"Column22", type any}, {"Column23", type any}, {"Column24", type any}, {"Column25", type any}, {"Column26", type any}, {"Column27", type any}, {"Column28", type any}, {"Column29", type any}}),
 				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"id_jogador", "jogador", "competição", "jogos", "gols", "assitencias", "titularidades", "reservas", "minutos", "amarelos", "seg_amarelos", "vermelhos"}),
-				    #"Primeiras Linhas Mantidas" = Table.FirstN(#"Outras Colunas Removidas",77)
+				    #"Primeiras Linhas Mantidas" = Table.FirstN(#"Outras Colunas Removidas",77),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Primeiras Linhas Mantidas",{{"assitencias", "assistencias"}})
 				in
-				    #"Primeiras Linhas Mantidas"
+				    #"Colunas Renomeadas"
 
 	annotation PBI_NavigationStepName = Navegação
 

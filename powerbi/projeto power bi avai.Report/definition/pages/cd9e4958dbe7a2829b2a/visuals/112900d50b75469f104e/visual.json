@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "b9588b952fc0dbb8e68b",
+  "name": "112900d50b75469f104e",
   "position": {
     "x": 0,
-    "y": 180.88669950738915,
-    "z": 11000,
-    "height": 39.901477832512313,
-    "width": 180.88669950738915,
-    "tabOrder": 9000
+    "y": 170,
+    "z": 10001,
+    "height": 42.727272727272727,
+    "width": 180.90909090909091,
+    "tabOrder": 8001
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "VISÃO GERAL",
+                    "value": "JOGADORES",
                     "textStyle": {
                       "fontFamily": "Arial Black",
                       "fontSize": "14pt",

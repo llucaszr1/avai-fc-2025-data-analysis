@@ -1,6 +1,16 @@
 table Dim_Jogador
 	lineageTag: 24a8371a-9692-4d5b-b69d-76f23398eadf
 
+	measure 'Minutos por Participação' =
+			
+			DIVIDE(
+			    SUM(estatisticas_jogador[minutos]),
+			    [Participações em Gols]
+			)
+		lineageTag: 56e94f9e-24fa-405d-ab78-fa7c37a805cf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column id_jogador
 		dataType: int64
 		formatString: 0

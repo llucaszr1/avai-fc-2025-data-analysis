@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "7ebc1ecf7a9f5e98b11c",
+  "name": "ac8b0354576ba146cfb9",
   "position": {
-    "x": 619.80295566502468,
-    "y": 527.58620689655174,
-    "z": 13000,
-    "height": 187.09359605911331,
-    "width": 608.27586206896547,
-    "tabOrder": 12000
+    "x": 856.36363636363626,
+    "y": 435.45454545454544,
+    "z": 9000,
+    "height": 270,
+    "width": 409.09090909090907,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Jogos"
+                      "Entity": "estatisticas_jogador"
                     }
                   },
-                  "Property": "competição"
+                  "Property": "jogador"
                 }
               },
-              "queryRef": "Jogos.competição",
-              "nativeQueryRef": "Competição",
+              "queryRef": "estatisticas_jogador.jogador",
+              "nativeQueryRef": "Jogador",
               "active": true,
-              "displayName": "Competição"
+              "displayName": "Jogador"
             }
           ]
         },
@@ -37,87 +37,57 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "Jogos"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "estatisticas_jogador"
+                        }
+                      },
+                      "Property": "amarelos"
                     }
                   },
-                  "Property": "Total Jogos"
+                  "Function": 0
                 }
               },
-              "queryRef": "Jogos.Total Jogos",
-              "nativeQueryRef": "Total Jogos"
+              "queryRef": "Sum(estatisticas_jogador.amarelos)",
+              "nativeQueryRef": "Amarelos",
+              "displayName": "Amarelos"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "estatisticas_jogador"
+                        }
+                      },
+                      "Property": "vermelhos"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(estatisticas_jogador.vermelhos)",
+              "nativeQueryRef": "Vermelhos",
+              "displayName": "Vermelhos"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Jogos"
+                      "Entity": "estatisticas_jogador"
                     }
                   },
-                  "Property": "Vitorias"
+                  "Property": "Total Cartões"
                 }
               },
-              "queryRef": "Jogos.Vitorias",
-              "nativeQueryRef": "Vitorias"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Jogos"
-                    }
-                  },
-                  "Property": "Empates"
-                }
-              },
-              "queryRef": "Jogos.Empates",
-              "nativeQueryRef": "Empates"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Jogos"
-                    }
-                  },
-                  "Property": "Derrotas"
-                }
-              },
-              "queryRef": "Jogos.Derrotas",
-              "nativeQueryRef": "Derrotas"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Jogos"
-                    }
-                  },
-                  "Property": "Saldo de Gols"
-                }
-              },
-              "queryRef": "Jogos.Saldo de Gols",
-              "nativeQueryRef": "Saldo de Gols"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Jogos"
-                    }
-                  },
-                  "Property": "Aproveitamento"
-                }
-              },
-              "queryRef": "Jogos.Aproveitamento",
-              "nativeQueryRef": "Aproveitamento"
+              "queryRef": "estatisticas_jogador.Total Cartões",
+              "nativeQueryRef": "Total Cartões"
             }
           ]
         }
@@ -126,13 +96,13 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Jogos"
+                    "Entity": "estatisticas_jogador"
                   }
                 },
-                "Property": "competição"
+                "Property": "Total Cartões"
               }
             },
             "direction": "Descending"
@@ -253,7 +223,7 @@
             "rowPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "4D"
                 }
               }
             },
@@ -319,7 +289,7 @@
                 }
               }
             ],
-            "metadata": "Jogos.Total Jogos"
+            "metadata": "estatisticas_jogador.Total Cartões"
           }
         }
       ],
@@ -343,7 +313,7 @@
             "columnSubtotals": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -388,6 +358,13 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
                 }
               }
             }
@@ -494,6 +471,27 @@
             }
           }
         }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "estatisticas_jogador.Total Cartões"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -586,7 +584,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Visualização Geral'"
+                  "Value": "'Disciplina'"
                 }
               }
             },
@@ -657,110 +655,130 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "8b21c65f725941cb0f6d",
+        "name": "b7f30ec0925cb25d834f",
+        "ordinal": 0,
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Jogos"
+                "Entity": "estatisticas_jogador"
               }
             },
-            "Property": "competição"
+            "Property": "jogador"
           }
         },
-        "type": "Categorical",
-        "isLockedInViewMode": true
+        "type": "Categorical"
       },
       {
-        "name": "0a2547a0283df2c61154",
+        "name": "7ed8e2f2828635d9d557",
+        "ordinal": 1,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "estatisticas_jogador"
+                  }
+                },
+                "Property": "amarelos"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "43337cac01dd496ffda8",
+        "ordinal": 2,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "estatisticas_jogador"
+                  }
+                },
+                "Property": "seg_amarelos"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "9a2c16cd546401eab9b1",
+        "ordinal": 3,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "estatisticas_jogador"
+                  }
+                },
+                "Property": "vermelhos"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cdb41a160db34c739848",
         "field": {
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Jogos"
+                "Entity": "estatisticas_jogador"
               }
             },
-            "Property": "Total Jogos"
+            "Property": "Total Cartões"
           }
         },
         "type": "Advanced",
-        "isLockedInViewMode": true
-      },
-      {
-        "name": "bee0e9440364794ec537",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Jogos"
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "e",
+              "Entity": "estatisticas_jogador",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 1,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "e"
+                        }
+                      },
+                      "Property": "Total Cartões"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "0L"
+                    }
+                  }
+                }
               }
-            },
-            "Property": "Vitorias"
-          }
-        },
-        "type": "Advanced",
-        "isLockedInViewMode": true
-      },
-      {
-        "name": "f56464bf91d5acaffe96",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Jogos"
-              }
-            },
-            "Property": "Empates"
-          }
-        },
-        "type": "Advanced",
-        "isLockedInViewMode": true
-      },
-      {
-        "name": "9c41d43cd14d31370c0c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Jogos"
-              }
-            },
-            "Property": "Derrotas"
-          }
-        },
-        "type": "Advanced",
-        "isLockedInViewMode": true
-      },
-      {
-        "name": "822bab2d973500accf80",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Jogos"
-              }
-            },
-            "Property": "Saldo de Gols"
-          }
-        },
-        "type": "Advanced",
-        "isLockedInViewMode": true
-      },
-      {
-        "name": "8d57f7b66574af8c3382",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Jogos"
-              }
-            },
-            "Property": "Aproveitamento"
-          }
-        },
-        "type": "Advanced",
-        "isLockedInViewMode": true
+            }
+          ]
+        }
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

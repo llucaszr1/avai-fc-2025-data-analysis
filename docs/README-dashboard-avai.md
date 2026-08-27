@@ -1,242 +1,178 @@
 # Dashboard Avaí FC 2025 — Power BI
 
-Projeto de portfólio desenvolvido em Power BI para análise de desempenho do Avaí Futebol Clube durante a temporada de 2025, contemplando o **Campeonato Catarinense** e o **Campeonato Brasileiro Série B**.
+Projeto de portfólio desenvolvido em **Power BI** para análise do desempenho do **Avaí Futebol Clube** durante a temporada de 2025, abrangendo o **Campeonato Catarinense** e o **Campeonato Brasileiro Série B**.
 
-O projeto busca demonstrar como dados esportivos podem ser organizados, modelados e transformados em indicadores e visualizações capazes de auxiliar na análise de desempenho.
+O projeto tem como objetivo transformar dados esportivos em informações visuais que auxiliem na análise de **desempenho, utilização do elenco, produção ofensiva e disciplina dos jogadores**.
 
 ## Motivação
 
 A ideia surgiu a partir de projetos de análise esportiva vistos no LinkedIn, com dashboards voltados ao desempenho de clubes de futebol.
 
-Como torcedor do Avaí, decidi aplicar essa abordagem ao clube, construindo um dashboard próprio a partir de dados coletados de diferentes fontes e posteriormente tratados e modelados no Power BI.
+Como torcedor do Avaí, decidi desenvolver um projeto próprio utilizando dados da temporada 2025, aplicando conceitos de **Business Intelligence, modelagem de dados, Power Query e DAX**.
 
-Além do resultado visual, o projeto tem como objetivo aplicar conceitos de:
+Durante o desenvolvimento, ferramentas de **Inteligência Artificial foram utilizadas como apoio** na construção do projeto.
 
-- Power Query
-- Modelagem de dados
-- Modelo dimensional
-- DAX
-- Data visualization
-- Indicadores de desempenho (KPIs)
-
-## Escopo
-
-O dashboard contempla a temporada **2025** do Avaí FC nas seguintes competições:
-
-- Campeonato Catarinense 2025
-- Campeonato Brasileiro Série B 2025
-
-As análises envolvem informações de partidas, resultados, gols, jogadores, participações em gols e estatísticas individuais.
+Além de servir como projeto de portfólio, o dashboard foi desenvolvido com foco em demonstrar como dados podem ser transformados em informações úteis para análise e tomada de decisão.
 
 ## Fontes de dados
 
-| Competição | Fonte | Formato coletado |
-|---|---|---|
-| Campeonato Catarinense | [OGol.com.br](https://www.ogol.com.br/) | Coleta manual |
-| Série B do Brasileirão | [FutPythonTrader](https://www.futpythontrader.com.br/) | Arquivo XLS estruturado |
+| Competição                       | Fonte                                                  | Formato coletado        |
+| -------------------------------- | ------------------------------------------------------ | ----------------------- |
+| Campeonato Catarinense           | [OGol.com.br](https://www.ogol.com.br/)                | Coleta manual           |
+| Série B do Campeonato Brasileiro | [FutPythonTrader](https://www.futpythontrader.com.br/) | Arquivo XLS estruturado |
 
-Os dados foram posteriormente organizados e tratados para utilização no Power BI.
+Os dados foram posteriormente tratados, padronizados e organizados para utilização no Power BI.
 
-## Organização e modelagem dos dados
+## Estrutura dos dados
 
-Os dados foram inicialmente estruturados em quatro tabelas principais:
+O projeto utiliza um modelo relacional composto por quatro tabelas principais:
 
-### Jogos
+### `Jogos`
 
-Contém informações de cada partida:
+Contém informações das partidas disputadas pelo Avaí:
 
-- `id_jogo`
-- `data`
-- `hora`
-- `competição`
-- `rodada`
-- `mando`
-- `adversário`
-- `gols_avai`
-- `gols_adversario`
-- `placar`
-- `resultado`
-- `penaltis`
+* ID da partida
+* Data e horário
+* Competição
+* Rodada
+* Mando de campo
+* Adversário
+* Gols do Avaí
+* Gols do adversário
+* Placar
+* Resultado
+* Informações relacionadas a pênaltis
 
-### Jogadores
+### `Jogadores`
 
 Cadastro dos jogadores:
 
-- `id_jogador`
-- `jogador`
-- `posição`
+* ID do jogador
+* Nome
+* Posição
 
-Essa tabela passou a atuar como **DIM_Jogador** no modelo.
+### `estatisticas_jogador`
 
-### estatisticas_jogador
+Estatísticas agregadas por jogador e competição:
 
-Contém estatísticas agregadas por jogador e competição:
+* Jogos
+* Gols
+* Assistências
+* Titularidades
+* Reservas
+* Minutos jogados
+* Cartões amarelos
+* Segundo amarelo
+* Cartões vermelhos
 
-- jogos
-- gols
-- assistências
-- titularidades
-- reservas
-- minutos
-- cartões amarelos
-- segundos amarelos
-- cartões vermelhos
+### `participacao_gols`
 
-### participacao_gols
+Registro das participações individuais em gols, relacionando jogador e partida:
 
-Registra as participações individuais em gols:
+* ID da partida
+* Competição
+* Placar
+* Jogador
+* Gols
+* Assistências
 
-- `id_jogo`
-- `competição`
-- `placar`
-- `id_jogador`
-- `gols`
-- `assistências`
+A estrutura foi desenvolvida buscando reduzir duplicidades e permitir análises cruzadas entre partidas, competições e jogadores.
 
-Essa estrutura permite relacionar os eventos de uma partida aos jogadores envolvidos sem duplicar informações desnecessariamente.
+## Tratamento e modelagem
 
-## Modelo de dados
+O processo de preparação dos dados foi realizado principalmente no **Power Query**, incluindo:
 
-Durante a modelagem no Power BI foram criadas dimensões auxiliares para organizar os dados e facilitar a construção das análises.
+* Padronização de tipos de dados
+* Limpeza e organização das tabelas
+* Padronização de identificadores
+* Tratamento das informações de partidas e jogadores
+* Criação das dimensões necessárias para análise
+* Estruturação dos relacionamentos entre as tabelas
+* Criação da tabela calendário
 
-### Dimensões
-
-- **DIM_Jogador** — identificação, nome e posição dos jogadores
-- **DIM_Calendario** — datas, meses e informações temporais
-- **DIM_Rodada** — competição, rodada e chave de relacionamento
-
-### Tabelas de dados
-
-- **Jogos**
-- **estatisticas_jogador**
-- **participacao_gols**
-
-A modelagem utiliza relacionamentos **1:N**, com as dimensões filtrando as tabelas de dados.
-
-A `DIM_Calendario` foi configurada como tabela de datas no Power BI.
-
-## Tratamento dos dados
-
-O tratamento foi realizado no **Power Query**, incluindo:
-
-- Padronização dos tipos de dados
-- Limpeza das tabelas
-- Remoção de colunas desnecessárias
-- Organização das informações para modelagem
-- Criação de dimensões auxiliares
-- Criação de chaves para relacionamentos
-- Estruturação da tabela calendário
-
-## Medidas DAX
-
-Foram criadas medidas para alimentar os indicadores e visuais do dashboard, incluindo:
-
-- Total de jogos
-- Vitórias
-- Empates
-- Derrotas
-- Gols marcados
-- Gols sofridos
-- Saldo de gols
-- Aproveitamento
-- Estatísticas individuais dos jogadores
-
-O aproveitamento é calculado considerando o sistema de pontuação do futebol:
-
-**Pontos conquistados ÷ pontos possíveis**
+O modelo foi posteriormente utilizado para construção das medidas e dos visuais no Power BI.
 
 ## Dashboard
 
-### 1. Visão Geral
+### Visão Geral
 
-A primeira página apresenta uma visão consolidada do desempenho do Avaí em 2025.
+A primeira página apresenta uma visão consolidada da temporada, incluindo:
 
-Principais elementos:
+* Total de jogos
+* Vitórias
+* Gols marcados
+* Gols sofridos
+* Saldo de gols
+* Distribuição dos resultados
+* Desempenho em casa e fora
+* Evolução temporal de gols marcados e sofridos
+* Aproveitamento por competição
+* Resumo das competições
 
-- Total de jogos
-- Total de vitórias
-- Gols marcados
-- Gols sofridos
-- Saldo de gols
-- Resultado dos jogos (Vitória / Empate / Derrota)
-- Desempenho como mandante e visitante
-- Evolução mensal de gols marcados e sofridos
-- Aproveitamento
-- Filtros interativos
+A página também conta com filtros interativos por **mês, competição, resultado e rodada**, permitindo explorar diferentes recortes da temporada.
 
-A página possui uma barra lateral com filtros por:
+### Análise de Jogadores
 
-- Competição
-- Mês
-- Resultado
-- Rodada
+A segunda página é dedicada ao desempenho individual do elenco.
 
-### 2. Jogadores
+Indicadores apresentados:
 
-A segunda página é dedicada ao desempenho individual dos jogadores.
+* Jogador
+* Gols
+* Assistências
+* Minutos
+* Titularidades
+* Cartões amarelos
+* Jogos
 
-Atualmente, a página possui:
+Visuais desenvolvidos:
 
-- Filtro por jogador
-- Filtro por competição
-- Filtro por posição
-- Total de jogadores
-- Gols
-- Assistências
-- Minutos
-- Titularidades
-- Jogos
-- Cartões amarelos
+* **Participação em gols por jogador**
+* **Minutos por participação em gol**
+* **Titularidade × participação em gols**
+* **Tabela da disciplina**
 
-Os indicadores de **minutos, titularidades e jogos** são exibidos quando há seleção de jogador, evitando agregações pouco representativas quando nenhum jogador está selecionado.
+O gráfico de dispersão permite analisar a relação entre a quantidade de titularidades e a participação direta em gols, com diferenciação dos jogadores por posição.
 
-## Identidade visual
+O indicador de minutos por participação considera um **mínimo de 300 minutos jogados**, reduzindo possíveis distorções causadas por jogadores com poucas oportunidades em campo.
 
-O dashboard utiliza uma identidade visual inspirada no Avaí FC, com predominância de:
+## Principais conceitos aplicados
 
-- Azul
-- Azul escuro
-- Branco
+* Power BI
+* Power Query
+* Modelagem relacional
+* Modelo dimensional
+* DAX
+* Medidas e indicadores
+* Segmentações de dados
+* Visualização de dados
+* Análise exploratória
+* Business Intelligence
 
-A interface foi estruturada com fundo escuro, cards destacados, barra lateral de filtros e elementos visuais consistentes entre as páginas.
+## SQL
 
-## Tecnologias utilizadas
+O **SQL não foi utilizado na versão atual do projeto**.
 
-- **Power BI**
-- **Power Query**
-- **DAX**
-- **Excel**
-- **Git / GitHub**
-
-O desenvolvimento também contou com apoio de ferramentas de Inteligência Artificial para auxiliar na organização, modelagem e desenvolvimento de algumas soluções do projeto.
+A utilização de SQL está prevista como uma futura evolução, permitindo incorporar uma etapa adicional de consulta e preparação dos dados e comparar diferentes abordagens de tratamento e análise.
 
 ## Status do projeto
 
-- [x] Definição do escopo
-- [x] Coleta dos dados
-- [x] Estruturação das quatro tabelas principais
-- [x] Tratamento dos dados no Power Query
-- [x] Criação da DIM_Calendario
-- [x] Criação da DIM_Jogador
-- [x] Criação da DIM_Rodada
-- [x] Modelagem e relacionamentos
-- [x] Criação das principais medidas DAX
-- [x] Construção da página **Visão Geral**
-- [x] Construção inicial da página **Jogadores**
-- [x] Implementação dos filtros interativos
-- [x] Desenvolvimento da identidade visual
-- [ ] Finalização dos visuais da página Jogadores
-- [ ] Desenvolvimento das demais páginas
-- [ ] Revisão e validação dos indicadores
-- [ ] Documentação final
-- [ ] Publicação do projeto e divulgação no LinkedIn
+* [x] Definição do escopo
+* [x] Coleta dos dados
+* [x] Estruturação das tabelas
+* [x] Tratamento dos dados no Power Query
+* [x] Criação da tabela calendário
+* [x] Modelagem e relacionamentos
+* [x] Criação das medidas DAX
+* [x] Desenvolvimento da página **Visão Geral**
+* [x] Desenvolvimento da página **Análise de Jogadores**
+* [x] Criação dos filtros interativos
+* [x] Padronização visual do dashboard
+* [x] Organização do projeto em formato PBIP
+* [x] Versionamento do projeto no Git/GitHub
+* [x] Documentação do projeto
+* [x] Documentação e publicação final do projeto
 
-## Próximos passos
+---
 
-1. Finalizar os visuais de desempenho individual dos jogadores
-2. Desenvolver as demais páginas analíticas
-3. Revisar medidas e relacionamentos
-4. Validar os resultados com os dados originais
-5. Refinar a identidade visual e a experiência de navegação
-6. Finalizar a documentação do projeto
-7. Publicar o projeto no GitHub e utilizá-lo como parte do portfólio profissional
+**Projeto desenvolvido como parte da construção de portfólio em Business Intelligence e Análise de Dados.**

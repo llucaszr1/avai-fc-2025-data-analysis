@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "9085309e42665355baef",
+  "name": "fe6796c15e7e0eef6b93",
   "position": {
-    "x": 760.78817733990149,
-    "y": 66.502463054187189,
-    "z": 9000,
-    "height": 113.49753694581281,
-    "width": 182.66009852216749,
-    "tabOrder": 7000
+    "x": 442.90640394088666,
+    "y": 0,
+    "z": 8000,
+    "height": 113.49753694581284,
+    "width": 163.15270935960589,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -17,17 +17,23 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "estatisticas_jogador"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "estatisticas_jogador"
+                        }
+                      },
+                      "Property": "gols"
                     }
                   },
-                  "Property": "Titularidades Card"
+                  "Function": 0
                 }
               },
-              "queryRef": "estatisticas_jogador.Titularidades Card",
-              "nativeQueryRef": "Titularidades Card"
+              "queryRef": "Sum(estatisticas_jogador.gols)",
+              "nativeQueryRef": "Gols",
+              "displayName": "Gols"
             }
           ]
         }
@@ -36,13 +42,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "estatisticas_jogador"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "estatisticas_jogador"
+                      }
+                    },
+                    "Property": "gols"
                   }
                 },
-                "Property": "Titularidades Card"
+                "Function": 0
               }
             },
             "direction": "Descending"
@@ -97,7 +108,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "35D"
+                  "Value": "90D"
                 }
               }
             }
@@ -352,14 +363,14 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'''Arial Black'''"
+                  "Value": "'Arial'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "16D"
                 }
               }
             }
@@ -412,7 +423,7 @@
             "heading": {
               "expr": {
                 "Literal": {
-                  "Value": "'Heading4'"
+                  "Value": "'Heading3'"
                 }
               }
             },
@@ -426,21 +437,21 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'''Arial Black'''"
+                  "Value": "'Arial'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "16D"
                 }
               }
             }
@@ -456,7 +467,84 @@
             "show": {
               "expr": {
                 "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inner'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "shadowCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inner'"
+                }
+              }
+            },
+            "shadowPositionPreset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "verticalSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "5L"
                 }
               }
             }
@@ -613,5 +701,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "98dbb3cea7b8f2a60059"
 }

@@ -1213,17 +1213,17 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "estatisticas_jogador.assitencia": {
+			    "estatisticas_jogador.assistencia": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "estatisticas_jogador",
-			          "ConceptualProperty": "assitencias"
+			          "ConceptualProperty": "assistencias"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "assitencia": {
+			          "assistencia": {
 			            "State": "Generated"
 			          }
 			        }
@@ -1375,6 +1375,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.461
 			          }
+			        },
+			        {
+			          "Minutos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -1420,6 +1430,16 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "Titularidades": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -1467,6 +1487,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.461
 			          }
+			        },
+			        {
+			          "Jogos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -1512,6 +1542,16 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "Jogador": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -1887,6 +1927,90 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "estatisticas_jogador.participações_em_gols": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "estatisticas_jogador",
+			          "ConceptualProperty": "Participações em Gols"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "participações em gols": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "estatisticas_jogador.ordem_participação": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "estatisticas_jogador",
+			          "ConceptualProperty": "Ordem Participação"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ordem participação": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_jogador.minutos_por_participação": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Jogador",
+			          "ConceptualProperty": "Minutos por Participação"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "minutos por participação": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "estatisticas_jogador.total_cartões": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "estatisticas_jogador",
+			          "ConceptualProperty": "Total Cartões"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total cartões": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate cartõe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall cartõe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -2078,6 +2202,138 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "DIM_calendarios_have_jogo"
+			        }
+			      ]
+			    },
+			    "estatisticas_jogador_has_total_cartões": {
+			      "Binding": {
+			        "ConceptualEntity": "estatisticas_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "estatisticas_jogador": {
+			          "Target": {
+			            "Entity": "estatisticas_jogador"
+			          }
+			        },
+			        "estatisticas_jogador.total_cartões": {
+			          "Target": {
+			            "Entity": "estatisticas_jogador.total_cartões"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "estatisticas_jogador"
+			            },
+			            "Object": {
+			              "Role": "estatisticas_jogador.total_cartões"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "estatisticas_jogadors_have_total_cartões"
+			        }
+			      ]
+			    },
+			    "estatisticas_jogador_has_dim_jogador_minutos_por_participação": {
+			      "Binding": {
+			        "ConceptualEntity": "estatisticas_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "estatisticas_jogador": {
+			          "Target": {
+			            "Entity": "estatisticas_jogador"
+			          }
+			        },
+			        "dim_jogador.minutos_por_participação": {
+			          "Target": {
+			            "Entity": "dim_jogador.minutos_por_participação"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "estatisticas_jogador"
+			            },
+			            "Object": {
+			              "Role": "dim_jogador.minutos_por_participação"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "estatisticas_jogadors_have_minutos_por_participação"
+			        }
+			      ]
+			    },
+			    "estatisticas_jogador_has_ordem_participação": {
+			      "Binding": {
+			        "ConceptualEntity": "estatisticas_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "estatisticas_jogador": {
+			          "Target": {
+			            "Entity": "estatisticas_jogador"
+			          }
+			        },
+			        "estatisticas_jogador.ordem_participação": {
+			          "Target": {
+			            "Entity": "estatisticas_jogador.ordem_participação"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "estatisticas_jogador"
+			            },
+			            "Object": {
+			              "Role": "estatisticas_jogador.ordem_participação"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "estatisticas_jogadors_have_ordem_participação"
+			        }
+			      ]
+			    },
+			    "estatisticas_jogador_has_participações_em_gols": {
+			      "Binding": {
+			        "ConceptualEntity": "estatisticas_jogador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "estatisticas_jogador": {
+			          "Target": {
+			            "Entity": "estatisticas_jogador"
+			          }
+			        },
+			        "estatisticas_jogador.participações_em_gols": {
+			          "Target": {
+			            "Entity": "estatisticas_jogador.participações_em_gols"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "estatisticas_jogador"
+			            },
+			            "Object": {
+			              "Role": "estatisticas_jogador.participações_em_gols"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "estatisticas_jogadors_have_participações_em_gols"
 			        }
 			      ]
 			    },
@@ -2906,7 +3162,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "estatisticas_jogador_has_assitencia": {
+			    "estatisticas_jogador_has_assistencia": {
 			      "Binding": {
 			        "ConceptualEntity": "estatisticas_jogador"
 			      },
@@ -2917,9 +3173,9 @@ cultureInfo pt-BR
 			            "Entity": "estatisticas_jogador"
 			          }
 			        },
-			        "estatisticas_jogador.assitencia": {
+			        "estatisticas_jogador.assistencia": {
 			          "Target": {
-			            "Entity": "estatisticas_jogador.assitencia"
+			            "Entity": "estatisticas_jogador.assistencia"
 			          }
 			        }
 			      },
@@ -2930,12 +3186,12 @@ cultureInfo pt-BR
 			              "Role": "estatisticas_jogador"
 			            },
 			            "Object": {
-			              "Role": "estatisticas_jogador.assitencia"
+			              "Role": "estatisticas_jogador.assistencia"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "estatisticas_jogadors_have_assitencias"
+			          "ID": "estatisticas_jogadors_have_assistencias"
 			        }
 			      ]
 			    },

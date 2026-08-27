@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "9da986c280919119fc56",
+  "name": "b57cacb2d1f8315739f2",
   "position": {
-    "x": 195.96059113300493,
-    "y": 527.58620689655174,
-    "z": 6000,
-    "height": 187.09359605911331,
-    "width": 414.97536945812806,
-    "tabOrder": 2000
+    "x": 199.09090909090907,
+    "y": 442.72727272727269,
+    "z": 10000,
+    "height": 262.72727272727269,
+    "width": 650,
+    "tabOrder": 8000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "scatterChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Jogos"
+                      "Entity": "Dim_Jogador"
                     }
                   },
-                  "Property": "mando"
+                  "Property": "jogador"
                 }
               },
-              "queryRef": "Jogos.mando",
-              "nativeQueryRef": "mando",
+              "queryRef": "Dim_Jogador.jogador",
+              "nativeQueryRef": "jogador",
               "active": true
             }
           ]
@@ -39,14 +39,38 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Jogos"
+                      "Entity": "Dim_Jogador"
                     }
                   },
-                  "Property": "resultado"
+                  "Property": "posição"
                 }
               },
-              "queryRef": "Jogos.resultado",
-              "nativeQueryRef": "resultado"
+              "queryRef": "Dim_Jogador.posição",
+              "nativeQueryRef": "posição"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "estatisticas_jogador"
+                        }
+                      },
+                      "Property": "titularidades"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(estatisticas_jogador.titularidades)",
+              "nativeQueryRef": "Soma de titularidades",
+              "active": true
             }
           ]
         },
@@ -57,40 +81,37 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Jogos"
+                      "Entity": "estatisticas_jogador"
                     }
                   },
-                  "Property": "Total Jogos"
+                  "Property": "Participações em Gols"
                 }
               },
-              "queryRef": "Jogos.Total Jogos",
-              "nativeQueryRef": "Total Jogos"
+              "queryRef": "estatisticas_jogador.Participações em Gols",
+              "nativeQueryRef": "Participações em Gols"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Jogos"
-                  }
-                },
-                "Property": "Total Jogos"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {
       "categoryAxis": [
         {
           "properties": {
+            "start": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            },
             "labelColor": {
               "solid": {
                 "color": {
@@ -103,10 +124,57 @@
                 }
               }
             },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
             "showAxisTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "gridlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dashed'"
+                }
+              }
+            },
+            "gridlineThickness": {
+              "expr": {
+                "Literal": {
+                  "Value": "0.5D"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Titularidades'"
+                }
+              }
+            },
+            "titleFontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
                 }
               }
             },
@@ -122,24 +190,101 @@
                 }
               }
             },
-            "show": {
+            "titleFontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "start": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "gridlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridlineThickness": {
+              "expr": {
+                "Literal": {
+                  "Value": "0.5D"
+                }
+              }
+            },
+            "gridlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dashed'"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "9D"
                 }
               }
             },
-            "bold": {
+            "titleText": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'Participações em gols'"
+                }
+              }
+            },
+            "titleFontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             },
@@ -150,24 +295,17 @@
                 }
               }
             },
-            "titleFontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
-                }
-              }
-            },
             "titleFontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "9D"
                 }
               }
             }
           }
         }
       ],
-      "valueAxis": [
+      "legend": [
         {
           "properties": {
             "labelColor": {
@@ -182,33 +320,14 @@
                 }
               }
             },
-            "titleColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "gridlineShow": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'Arial'"
                 }
               }
             },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showAxisTitle": {
+            "showTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -218,46 +337,20 @@
           }
         }
       ],
-      "labels": [
+      "bubbles": [
         {
           "properties": {
-            "show": {
+            "markerShape": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'circle'"
                 }
               }
             },
-            "bold": {
+            "bubbleSize": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "enableTitleDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
+                  "Value": "-10L"
                 }
               }
             }
@@ -272,8 +365,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.5
+                      "ColorId": 3,
+                      "Percent": -0.25
                     }
                   }
                 }
@@ -290,15 +383,15 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Jogos"
+                            "Entity": "Dim_Jogador"
                           }
                         },
-                        "Property": "resultado"
+                        "Property": "posição"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'E'"
+                        "Value": "'Atacante'"
                       }
                     }
                   }
@@ -332,15 +425,15 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Jogos"
+                            "Entity": "Dim_Jogador"
                           }
                         },
-                        "Property": "resultado"
+                        "Property": "posição"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'V'"
+                        "Value": "'Meia'"
                       }
                     }
                   }
@@ -356,8 +449,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 9,
-                      "Percent": 0.2
+                      "ColorId": 0,
+                      "Percent": 0
                     }
                   }
                 }
@@ -374,15 +467,54 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Jogos"
+                            "Entity": "Dim_Jogador"
                           }
                         },
-                        "Property": "resultado"
+                        "Property": "posição"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'D'"
+                        "Value": "'Defensor'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "markers": [
+        {
+          "properties": {
+            "borderShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dim_Jogador"
+                          }
+                        },
+                        "Property": "posição"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Defensor'"
                       }
                     }
                   }
@@ -397,39 +529,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "legend": [
-        {
-          "properties": {
-            "showGradientLegend": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "totals": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             }
@@ -457,71 +556,6 @@
               "expr": {
                 "Literal": {
                   "Value": "90D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Desempenho | Casa X Fora'"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'''Arial Black'''"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13D"
-                }
-              }
-            },
-            "background": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": -0.5
-                    }
-                  }
                 }
               }
             }
@@ -559,17 +593,24 @@
           }
         }
       ],
-      "dropShadow": [
+      "title": [
         {
           "properties": {
-            "show": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'''Arial Black'''"
                 }
               }
             },
-            "color": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -581,52 +622,29 @@
                 }
               }
             },
-            "preset": {
+            "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Center'"
+                  "Value": "'Titularidade X Participação em gols'"
                 }
               }
             },
-            "angle": {
+            "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "'center'"
                 }
               }
             },
-            "shadowDistance": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
-            },
-            "shadowBlur": {
-              "expr": {
-                "Literal": {
-                  "Value": "20L"
-                }
-              }
-            },
-            "shadowSpread": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "70L"
-                }
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Inner'"
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": -0.5
+                    }
+                  }
                 }
               }
             }

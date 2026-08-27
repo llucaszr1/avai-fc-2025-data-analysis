@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "c6101cc8ee5c4d48f308",
+  "name": "ecb1b732cf7a93f239be",
   "position": {
-    "x": 620.68965517241384,
-    "y": 66.502463054187189,
-    "z": 8000,
-    "height": 113.49753694581281,
-    "width": 172.01970443349754,
-    "tabOrder": 6000
+    "x": 865.41871921182269,
+    "y": 0,
+    "z": 10000,
+    "height": 113.49753694581284,
+    "width": 199.50738916256151,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,7 +27,9 @@
                 }
               },
               "queryRef": "estatisticas_jogador.Minutos Card",
-              "nativeQueryRef": "Minutos Card"
+              "nativeQueryRef": "Minutos",
+              "displayName": "Minutos",
+              "format": "#,0"
             }
           ]
         }
@@ -97,7 +99,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "35D"
+                  "Value": "90D"
                 }
               }
             }
@@ -352,14 +354,14 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'''Arial Black'''"
+                  "Value": "'Arial'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "16D"
                 }
               }
             }
@@ -377,6 +379,27 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "estatisticas_jogador.Minutos Card"
           }
         }
       ],
@@ -412,7 +435,7 @@
             "heading": {
               "expr": {
                 "Literal": {
-                  "Value": "'Heading4'"
+                  "Value": "'Heading3'"
                 }
               }
             },
@@ -426,21 +449,21 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'''Arial Black'''"
+                  "Value": "'Arial'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "16D"
                 }
               }
             }
@@ -456,7 +479,84 @@
             "show": {
               "expr": {
                 "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inner'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "shadowCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inner'"
+                }
+              }
+            },
+            "shadowPositionPreset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "verticalSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "5L"
                 }
               }
             }
@@ -613,5 +713,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "98dbb3cea7b8f2a60059"
 }
