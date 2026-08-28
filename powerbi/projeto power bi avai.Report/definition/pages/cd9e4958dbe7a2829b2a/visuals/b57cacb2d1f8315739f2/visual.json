@@ -406,9 +406,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0.4
+                    "Literal": {
+                      "Value": "'#E5F273'"
                     }
                   }
                 }
@@ -476,6 +475,48 @@
                     "Right": {
                       "Literal": {
                         "Value": "'Defensor'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dim_Jogador"
+                          }
+                        },
+                        "Property": "posição"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Goleiro'"
                       }
                     }
                   }

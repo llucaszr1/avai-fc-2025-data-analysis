@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "fbfea52db423826b439b",
   "position": {
-    "x": 180.90909090909091,
-    "y": 8.1818181818181817,
+    "x": 180.88669950738915,
+    "y": 17.733990147783253,
     "z": 4000,
-    "height": 58.18181818181818,
-    "width": 1099.090909090909,
+    "height": 75.369458128078819,
+    "width": 1099.5073891625616,
     "tabOrder": 2000
   },
   "visual": {
@@ -22,7 +22,7 @@
                     "value": "Análise de Jogadores",
                     "textStyle": {
                       "fontFamily": "Arial Black",
-                      "fontSize": "24pt",
+                      "fontSize": "28pt",
                       "color": "#ffffff"
                     }
                   }
